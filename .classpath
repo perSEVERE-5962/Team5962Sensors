@@ -2,9 +2,11 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/home/dlemasurier/wpilib/java/current/lib/WPILib.jar" sourcepath="/frc-2017/C:/Users/MVRobotics/wpilib/java/current/lib/WPILib-sources.jar"/>
-	<classpathentry kind="lib" path="/home/dlemasurier/wpilib/java/current/lib/NetworkTables.jar"/>
 	<classpathentry kind="lib" path="/home/dlemasurier/wpilib/java/current/lib/cscore.jar"/>
+	<classpathentry kind="lib" path="/home/dlemasurier/wpilib/java/current/lib/CTRE_Phoenix.jar" sourcepath="/home/dlemasurier/wpilib/java/current/lib/CTRE_Phoenix-sources.jar"/>
+	<classpathentry kind="lib" path="/home/dlemasurier/wpilib/java/current/lib/ntcore.jar" sourcepath="/home/dlemasurier/wpilib/java/current/lib/ntcore-sources.jar"/>
 	<classpathentry kind="lib" path="/home/dlemasurier/wpilib/java/current/lib/opencv.jar"/>
+	<classpathentry kind="lib" path="/home/dlemasurier/wpilib/java/current/lib/WPILib.jar" sourcepath="/home/dlemasurier/wpilib/java/current/lib/WPILib-sources.jar"/>
+	<classpathentry kind="lib" path="/home/dlemasurier/wpilib/java/current/lib/wpiutil.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
