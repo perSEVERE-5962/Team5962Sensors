@@ -592,42 +592,6 @@ public class ADIS16448_IMU extends GyroBase implements Gyro, PIDSource, Sendable
     }
   }
 
-  private void calculate() {
-    while (!m_freed.get()) {
-      // Wait for next sample and get it
-      Sample sample;
-      m_samples_mutex.lock();
-      try {
-        m_calculate_started = true;
-        while (m_samples_count == 0) {
-          m_samples_not_empty.await();
-          if (m_freed.get()) {
-            return;
-          }
-        }
-        sample = m_samples[m_samples_take_index];
-        ++m_samples_take_index;
-        if (m_samples_take_index == (kSamplesDepth + 2))
-          m_samples_take_index = 0;
-        --m_samples_count;
-      } catch (InterruptedException e) {
-        break;
-      } finally {
-        m_samples_mutex.unlock();
-      }
-
-      switch (m_algorithm) {
-        case kMadgwick:
-          calculateMadgwick(sample, 0.4);
-          break;
-        case kComplementary:
-        default:
-          calculateComplementary(sample);
-          break;
-      }
-    }
-  }
-
   private void calculateMadgwick(Sample sample, double beta) {
     // Make local copy of quaternion and angle global state
     double q1, q2, q3, q4;
@@ -804,6 +768,42 @@ public class ADIS16448_IMU extends GyroBase implements Gyro, PIDSource, Sendable
       m_yaw = xi;
       m_roll = theta;
       m_pitch = rho;
+    }
+  }
+
+private void calculate() {
+    while (!m_freed.get()) {
+      // Wait for next sample and get it
+      Sample sample;
+      m_samples_mutex.lock();
+      try {
+        m_calculate_started = true;
+        while (m_samples_count == 0) {
+          m_samples_not_empty.await();
+          if (m_freed.get()) {
+            return;
+          }
+        }
+        sample = m_samples[m_samples_take_index];
+        ++m_samples_take_index;
+        if (m_samples_take_index == (kSamplesDepth + 2))
+          m_samples_take_index = 0;
+        --m_samples_count;
+      } catch (InterruptedException e) {
+        break;
+      } finally {
+        m_samples_mutex.unlock();
+      }
+
+      switch (m_algorithm) {
+        case kMadgwick:
+          calculateMadgwick(sample, 0.4);
+          break;
+        case kComplementary:
+        default:
+          calculateComplementary(sample);
+          break;
+      }
     }
   }
 
