@@ -14,8 +14,8 @@ public class RobotEncoder {
 	public RobotEncoder() {
 		encoderLeft = new Encoder(0, 1, true, Encoder.EncodingType.k4X);
 		encoderRight = new Encoder(2, 3, false, Encoder.EncodingType.k4X);
-		encoderLeft.setDistancePerPulse(0.027);
-		encoderRight.setDistancePerPulse(0.027);
+		encoderLeft.setDistancePerPulse(0.06545);
+		encoderRight.setDistancePerPulse(0.06545);
 	}
 
 	public void setNumberOfEncoders(int numberOfEncoders) {
