@@ -14,6 +14,9 @@ public class RobotUltrasonicAnalog extends RobotUltrasonicBase {
 		return ultrasonic.getVoltage() * valueToInches;
 	}
 
+	public double getVoltage() {
+		return ultrasonic.getVoltage();
+	}
 	public boolean isEnabled() {
 		return true;
 	}
