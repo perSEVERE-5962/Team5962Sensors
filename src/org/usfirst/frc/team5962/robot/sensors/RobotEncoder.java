@@ -43,6 +43,10 @@ public class RobotEncoder {
 		SmartDashboard.putString("Encoder Distance", "" + distance);
 		return distance;
 	}
+	
+	public boolean isInverted() {
+		return isInverted;
+	}
 
 	public void logValues() {
 		System.out.println("encoder left = " + encoderLeft.getDistance());
