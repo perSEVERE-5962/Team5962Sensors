@@ -20,4 +20,14 @@ public class RobotUltrasonicAnalog extends RobotUltrasonicBase {
 	public boolean isEnabled() {
 		return true;
 	}
+	
+	public void setBackwards(boolean backwards) {
+		// this is only used for testing
+		// DO NOT ADD PRODUCTION CODE HERE!
+	}
+	
+	public void reset() {
+		// this is only used for testing
+		// DO NOT ADD PRODUCTION CODE HERE!
+	}
 }
