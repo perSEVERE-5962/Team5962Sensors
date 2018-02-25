@@ -36,28 +36,14 @@ public class RobotUltrasonicDigital extends RobotUltrasonicBase {
 	public boolean isEnabled() {
 		return SmartDashboard.getBoolean("Enable Digital Ultrasonic Range Finder", false);
 	}
-   
-    
-/**
-    public void Ultrasonic(){
-    	int angleInt = Robot.gyro.getGyroAngle();
-		boolean rturn = false;
-		boolean ultraSensor = false;
-		if(ultraSensor == false){	
-			RobotMap.myRobot.drive(-0.3, -angleInt * 0.03);
-		}
-		else if(ultraSensor == true && rturn == false && angleInt < 90){
-			RobotMap.myRobot.drive(0.1, -1);
-		}
-		else if(angleInt >= 90 && angleInt < 91){
-			rturn = true;
-			ultraSensor = false;
-			Robot.gyro.resetGyro();
-		}
-		else if(ultraSensor == true && rturn == true){
-			new ReleaseBallTop();
-		}
-		
-    }
-*/
+	
+	public void setBackwards(boolean backwards) {
+		// this is only used for testing
+		// DO NOT ADD PRODUCTION CODE HERE!
+	}
+	
+	public void reset() {
+		// this is only used for testing
+		// DO NOT ADD PRODUCTION CODE HERE!
+	}
 }

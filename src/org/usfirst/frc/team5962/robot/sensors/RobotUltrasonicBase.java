@@ -44,5 +44,6 @@ public abstract class RobotUltrasonicBase {
 	}
 
 	public abstract boolean isEnabled();
-
+	public abstract void setBackwards(boolean backwards); // this is only used for testing
+	public abstract void reset(); // this is only used for testing
 }
