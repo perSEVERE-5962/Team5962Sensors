@@ -14,8 +14,8 @@ public class RobotEncoder {
 	public RobotEncoder() {
 		encoderLeft = new Encoder(0, 1, true, Encoder.EncodingType.k4X);
 		encoderRight = new Encoder(2, 3, false, Encoder.EncodingType.k4X);
-		encoderLeft.setDistancePerPulse(0.06545);
-		encoderRight.setDistancePerPulse(0.06545);
+		encoderLeft.setDistancePerPulse(0.069813);
+		encoderRight.setDistancePerPulse(0.069813);
 	}
 
 	public void setNumberOfEncoders(int numberOfEncoders) {
@@ -38,9 +38,12 @@ public class RobotEncoder {
 		SmartDashboard.putString("Right Encoder Distance", "" + encoderRight.getDistance());
 
 		double distance = ((encoderLeft.getDistance() + encoderRight.getDistance()) / numberOfEncoders);
+		
+		SmartDashboard.putString("Both Encoder Distance", "" + distance);
+		
 		if(isInverted)
 			distance = -distance;
-		SmartDashboard.putString("Encoder Distance", "" + distance);
+		//SmartDashboard.putString("Encoder Distance", "" + distance);
 		return distance;
 	}
 	
